@@ -3,8 +3,11 @@ const express = require("express");
 const cors = require("cors");
 const passportSetup = require("./passport");
 const passport = require("passport");
-const authRoute = require("./routes/auth")
+const authRoute = require("./routes/auth");
+const path = require('path');
+
 const app = express();
+
 
 app.use(express.static(path.join(__dirname, 'build')));
 
