@@ -37,7 +37,3 @@ app.use(cors({
 }))
 
 app.use("/auth", authRoute);
-
-app.listen("https://bateaux-api.onrender.com", ()=>{
-    console.log("Server is running!")
-})
