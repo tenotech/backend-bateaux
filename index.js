@@ -37,3 +37,7 @@ app.use(cors({
 }))
 
 app.use("/auth", authRoute);
+
+app.listen("5000", ()=>{
+    console.log("Server is running!")
+})
