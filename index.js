@@ -3,17 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const passportSetup = require("./passport");
 const passport = require("passport");
-const authRoute = require("./routes/auth");
-const path = require('path');
-
+const authRoute = require("./routes/auth")
 const app = express();
-
-
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
 
 app.use(cookieSession({
     name: "session",
