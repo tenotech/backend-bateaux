@@ -6,6 +6,12 @@ const passport = require("passport");
 const authRoute = require("./routes/auth")
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+
 app.use(cookieSession({
     name: "session",
     keys: ["bateaux"],
@@ -38,6 +44,8 @@ app.use(cors({
 
 app.use("/auth", authRoute);
 
-app.listen("5000", ()=>{
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, ()=>{
     console.log("Server is running!")
 })
